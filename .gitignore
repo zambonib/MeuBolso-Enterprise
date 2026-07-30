@@ -1,0 +1,13 @@
+# Build and IDE artifacts
+target/
+node_modules/
+.agents/
+.DS_Store
+.mvn/
+*.log
+dist/
+build/
+.idea/
+.vscode/
+*.class
+*.jar
