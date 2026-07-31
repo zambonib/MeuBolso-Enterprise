@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
+import AccountsPage from './pages/AccountsPage';
 import TransactionsPage from './pages/TransactionsPage';
 
 // Route Guard: Protected Routes
@@ -62,6 +63,7 @@ export function App() {
           <Route element={<ProtectedRoute />}>
             <Route element={<AppLayout />}>
               <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/contas" element={<AccountsPage />} />
               <Route path="/transacoes" element={<TransactionsPage />} />
             </Route>
           </Route>

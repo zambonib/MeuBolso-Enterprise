@@ -14,6 +14,13 @@ export const Sidebar = () => {
           <span>Dashboard</span>
         </NavLink>
         <NavLink
+          to="/contas"
+          className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+        >
+          <span>💳</span>
+          <span>Contas Bancárias</span>
+        </NavLink>
+        <NavLink
           to="/transacoes"
           className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
         >

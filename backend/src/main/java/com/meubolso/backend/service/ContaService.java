@@ -54,6 +54,9 @@ public class ContaService {
                 request.getNome(),
                 request.getSaldoInicial(),
                 request.getTipo(),
+                request.getNumeroConta(),
+                request.getChequeEspecial(),
+                request.getCor(),
                 usuario
         );
 
@@ -70,6 +73,9 @@ public class ContaService {
         conta.setNome(request.getNome());
         conta.setSaldoInicial(request.getSaldoInicial());
         conta.setTipo(request.getTipo());
+        conta.setNumeroConta(request.getNumeroConta());
+        conta.setChequeEspecial(request.getChequeEspecial());
+        conta.setCor(request.getCor());
 
         Conta updated = contaRepository.save(conta);
         return ContaDTO.fromEntity(updated);

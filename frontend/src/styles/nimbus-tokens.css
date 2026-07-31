@@ -1,9 +1,13 @@
 /* src/styles/nimbus-tokens.css */
 :root {
-  /* Brand Colors */
-  --nimbus-primary: #4f46e5;         /* Indigo 600 */
-  --nimbus-primary-hover: #4338ca;   /* Indigo 700 */
-  --nimbus-primary-light: #e0e7ff;   /* Indigo 100 */
+  /* Brand Colors (Electric Blue & Vibrant Purple from Logo) */
+  --nimbus-primary: #2563eb;         /* Electric Royal Blue */
+  --nimbus-primary-hover: #1d4ed8;   /* Deep Blue */
+  --nimbus-primary-light: #eff6ff;   /* Light Blue Soft Tint */
+  
+  --nimbus-purple: #8b5cf6;          /* Vibrant Violet/Purple */
+  --nimbus-purple-hover: #7c3aed;    /* Deep Purple */
+  --nimbus-purple-light: #f5f3ff;    /* Light Purple Soft Tint */
 
   /* Semantic Status Colors */
   --nimbus-success: #10b981;         /* Emerald 500 (RECEITA) */
@@ -17,33 +21,33 @@
   --nimbus-warning: #f59e0b;         /* Amber 500 */
   --nimbus-warning-bg: #fef3c7;      /* Amber 100 */
 
-  --nimbus-info: #06b6d4;            /* Cyan 500 */
-  --nimbus-info-bg: #cffaff;         /* Cyan 100 */
+  --nimbus-info: #0284c7;            /* Sky 600 */
+  --nimbus-info-bg: #e0f2fe;         /* Sky 100 */
 
-  /* Neutral Backgrounds & Surfaces (Light Theme) */
-  --nimbus-bg: #f1f5f9;              /* Slate 100 with gradient potential */
-  --nimbus-surface: rgba(255, 255, 255, 0.8); /* Glassmorphic Surface */
-  --nimbus-surface-hover: rgba(241, 245, 249, 0.9);
-  --nimbus-border: rgba(226, 232, 240, 0.8);
-  --nimbus-glass-bg: rgba(255, 255, 255, 0.75);
-  --nimbus-glass-border: rgba(255, 255, 255, 0.6);
-  --nimbus-divider: #cbd5e1;
+  /* Neutral Backgrounds & Surfaces (Light Theme - Bold Mesh Gradient) */
+  --nimbus-bg: #f8fafc;
+  --nimbus-surface: rgba(255, 255, 255, 0.7); /* Apple iOS Glass Surface */
+  --nimbus-surface-hover: rgba(255, 255, 255, 0.85);
+  --nimbus-border: rgba(255, 255, 255, 0.8);
+  --nimbus-glass-bg: rgba(255, 255, 255, 0.65);
+  --nimbus-glass-border: rgba(255, 255, 255, 0.9);
+  --nimbus-divider: #e2e8f0;
 
   /* Typography Colors */
   --nimbus-text-heading: #0f172a;
-  --nimbus-text-body: #334155;
+  --nimbus-text-body: #1e293b;
   --nimbus-text-muted: #64748b;
 
-  /* Multi-Layered Depth Shadows */
-  --nimbus-shadow-sm: 0 2px 8px 0 rgba(15, 23, 42, 0.04);
-  --nimbus-shadow-md: 0 8px 24px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
-  --nimbus-shadow-lg: 0 20px 35px -5px rgba(15, 23, 42, 0.12), 0 8px 15px -3px rgba(15, 23, 42, 0.06);
+  /* Multi-Layered iOS 26 Depth Shadows */
+  --nimbus-shadow-sm: 0 4px 12px 0 rgba(37, 99, 235, 0.05);
+  --nimbus-shadow-md: 0 12px 32px -4px rgba(37, 99, 235, 0.12), 0 4px 12px -2px rgba(139, 92, 246, 0.08);
+  --nimbus-shadow-lg: 0 24px 48px -6px rgba(37, 99, 235, 0.18), 0 12px 24px -4px rgba(139, 92, 246, 0.12);
 
   /* Border Radii */
-  --nimbus-radius-sm: 8px;
-  --nimbus-radius-md: 12px;
-  --nimbus-radius-lg: 16px;
-  --nimbus-radius-xl: 20px;
+  --nimbus-radius-sm: 10px;
+  --nimbus-radius-md: 14px;
+  --nimbus-radius-lg: 20px;
+  --nimbus-radius-xl: 24px;
 
   /* Typography Fonts */
   --nimbus-font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -51,19 +55,19 @@
 }
 
 [data-theme="dark"] {
-  --nimbus-bg: #0b1329;              /* Deep Slate Dark */
-  --nimbus-surface: rgba(30, 41, 59, 0.75); /* Dark Glass Surface */
-  --nimbus-surface-hover: rgba(51, 65, 85, 0.85);
-  --nimbus-border: rgba(51, 65, 85, 0.6);
-  --nimbus-glass-bg: rgba(30, 41, 59, 0.7);
-  --nimbus-glass-border: rgba(255, 255, 255, 0.1);
-  --nimbus-divider: #475569;
+  --nimbus-bg: #090d16;              /* Ultra Deep Space Dark */
+  --nimbus-surface: rgba(15, 23, 42, 0.65); /* Dark Apple Glass */
+  --nimbus-surface-hover: rgba(30, 41, 59, 0.8);
+  --nimbus-border: rgba(255, 255, 255, 0.12);
+  --nimbus-glass-bg: rgba(15, 23, 42, 0.6);
+  --nimbus-glass-border: rgba(255, 255, 255, 0.15);
+  --nimbus-divider: #334155;
 
   --nimbus-text-heading: #f8fafc;
-  --nimbus-text-body: #cbd5e1;
+  --nimbus-text-body: #e2e8f0;
   --nimbus-text-muted: #94a3b8;
 
-  --nimbus-shadow-sm: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
-  --nimbus-shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.2);
-  --nimbus-shadow-lg: 0 20px 35px -5px rgba(0, 0, 0, 0.5), 0 8px 15px -3px rgba(0, 0, 0, 0.3);
+  --nimbus-shadow-sm: 0 4px 12px 0 rgba(0, 0, 0, 0.4);
+  --nimbus-shadow-md: 0 12px 32px -4px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(139, 92, 246, 0.2);
+  --nimbus-shadow-lg: 0 24px 48px -6px rgba(0, 0, 0, 0.7), 0 12px 24px -4px rgba(37, 99, 235, 0.25);
 }

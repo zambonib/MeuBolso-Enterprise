@@ -31,6 +31,15 @@ public class Conta {
     @Column(nullable = false, length = 20)
     private TipoConta tipo;
 
+    @Column(length = 50)
+    private String numeroConta;
+
+    @Column(precision = 19, scale = 2)
+    private BigDecimal chequeEspecial = BigDecimal.ZERO;
+
+    @Column(length = 30)
+    private String cor;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id", nullable = false, updatable = false)
     private Usuario usuario;
@@ -42,6 +51,16 @@ public class Conta {
         this.nome = nome;
         this.saldoInicial = saldoInicial;
         this.tipo = tipo;
+        this.usuario = usuario;
+    }
+
+    public Conta(String nome, BigDecimal saldoInicial, TipoConta tipo, String numeroConta, BigDecimal chequeEspecial, String cor, Usuario usuario) {
+        this.nome = nome;
+        this.saldoInicial = saldoInicial;
+        this.tipo = tipo;
+        this.numeroConta = numeroConta;
+        this.chequeEspecial = chequeEspecial;
+        this.cor = cor;
         this.usuario = usuario;
     }
 
@@ -75,6 +94,30 @@ public class Conta {
 
     public void setTipo(TipoConta tipo) {
         this.tipo = tipo;
+    }
+
+    public String getNumeroConta() {
+        return numeroConta;
+    }
+
+    public void setNumeroConta(String numeroConta) {
+        this.numeroConta = numeroConta;
+    }
+
+    public BigDecimal getChequeEspecial() {
+        return chequeEspecial;
+    }
+
+    public void setChequeEspecial(BigDecimal chequeEspecial) {
+        this.chequeEspecial = chequeEspecial;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
     }
 
     public Usuario getUsuario() {

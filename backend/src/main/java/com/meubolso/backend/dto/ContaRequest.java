@@ -19,6 +19,10 @@ public class ContaRequest {
     @NotNull(message = "O tipo da conta é obrigatório")
     private TipoConta tipo;
 
+    private String numeroConta;
+    private BigDecimal chequeEspecial;
+    private String cor;
+
     public ContaRequest() {
     }
 
@@ -26,6 +30,15 @@ public class ContaRequest {
         this.nome = nome;
         this.saldoInicial = saldoInicial;
         this.tipo = tipo;
+    }
+
+    public ContaRequest(String nome, BigDecimal saldoInicial, TipoConta tipo, String numeroConta, BigDecimal chequeEspecial, String cor) {
+        this.nome = nome;
+        this.saldoInicial = saldoInicial;
+        this.tipo = tipo;
+        this.numeroConta = numeroConta;
+        this.chequeEspecial = chequeEspecial;
+        this.cor = cor;
     }
 
     public String getNome() {
@@ -50,5 +63,29 @@ public class ContaRequest {
 
     public void setTipo(TipoConta tipo) {
         this.tipo = tipo;
+    }
+
+    public String getNumeroConta() {
+        return numeroConta;
+    }
+
+    public void setNumeroConta(String numeroConta) {
+        this.numeroConta = numeroConta;
+    }
+
+    public BigDecimal getChequeEspecial() {
+        return chequeEspecial;
+    }
+
+    public void setChequeEspecial(BigDecimal chequeEspecial) {
+        this.chequeEspecial = chequeEspecial;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
     }
 }

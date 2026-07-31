@@ -96,6 +96,14 @@ export const Navbar = () => {
               </NavLink>
 
               <NavLink
+                to="/contas"
+                className={({ isActive }) => `mobile-nav-item ${isActive ? 'active' : ''}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span>💳 Contas Bancárias</span>
+              </NavLink>
+
+              <NavLink
                 to="/transacoes"
                 className={({ isActive }) => `mobile-nav-item ${isActive ? 'active' : ''}`}
                 onClick={() => setIsMobileMenuOpen(false)}

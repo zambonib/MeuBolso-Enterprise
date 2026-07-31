@@ -11,6 +11,9 @@ public class ContaDTO {
     private String nome;
     private BigDecimal saldoInicial;
     private TipoConta tipo;
+    private String numeroConta;
+    private BigDecimal chequeEspecial;
+    private String cor;
 
     public ContaDTO() {
     }
@@ -22,6 +25,16 @@ public class ContaDTO {
         this.tipo = tipo;
     }
 
+    public ContaDTO(Long id, String nome, BigDecimal saldoInicial, TipoConta tipo, String numeroConta, BigDecimal chequeEspecial, String cor) {
+        this.id = id;
+        this.nome = nome;
+        this.saldoInicial = saldoInicial;
+        this.tipo = tipo;
+        this.numeroConta = numeroConta;
+        this.chequeEspecial = chequeEspecial;
+        this.cor = cor;
+    }
+
     public static ContaDTO fromEntity(Conta conta) {
         if (conta == null) {
             return null;
@@ -30,7 +43,10 @@ public class ContaDTO {
                 conta.getId(),
                 conta.getNome(),
                 conta.getSaldoInicial(),
-                conta.getTipo()
+                conta.getTipo(),
+                conta.getNumeroConta(),
+                conta.getChequeEspecial(),
+                conta.getCor()
         );
     }
 
@@ -64,5 +80,29 @@ public class ContaDTO {
 
     public void setTipo(TipoConta tipo) {
         this.tipo = tipo;
+    }
+
+    public String getNumeroConta() {
+        return numeroConta;
+    }
+
+    public void setNumeroConta(String numeroConta) {
+        this.numeroConta = numeroConta;
+    }
+
+    public BigDecimal getChequeEspecial() {
+        return chequeEspecial;
+    }
+
+    public void setChequeEspecial(BigDecimal chequeEspecial) {
+        this.chequeEspecial = chequeEspecial;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
     }
 }

@@ -70,7 +70,7 @@ export const HomePage = () => {
           <div className="nimbus-card feature-card">
             <div className="feature-icon">🔒</div>
             <h3>Segurança & Isolamento</h3>
-            <p>Seus dados são 100% protegidos com tecnologia SaaS Multi-Tenant e criptografia de ponta a ponta.</p>
+            <p>Seus dados Protegidos com criptografia de ponta a ponta.</p>
           </div>
         </div>
       </section>

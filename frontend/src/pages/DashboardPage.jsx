@@ -8,16 +8,18 @@ import StatCard from '../components/StatCard';
 import TransactionTable from '../components/TransactionTable';
 import TransactionModal from '../components/TransactionModal';
 import AccountModal from '../components/AccountModal';
+import CategoryModal from '../components/CategoryModal';
 import Badge from '../components/Badge';
 
 export const DashboardPage = () => {
   const { user } = useAuth();
   const { accounts, loading: loadingAccounts, refetch: refetchAccounts } = useAccounts();
-  const { categories, loading: loadingCategories } = useCategories();
+  const { categories, loading: loadingCategories, refetch: refetchCategories } = useCategories();
   const { transactions, loading: loadingTransactions, refetch: refetchTransactions, createTransaction } = useTransactions();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
+  const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
 
   // Derived financial statistics
   const parseNumber = (val) => {
@@ -171,7 +173,10 @@ export const DashboardPage = () => {
 
           {/* Categories Summary */}
           <div className="nimbus-card">
-            <h2 style={{ fontSize: '1.1rem', marginBottom: '1rem' }}>Categorias</h2>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+              <h2 style={{ fontSize: '1.1rem', margin: 0 }}>Categorias</h2>
+              <button className="btn btn-ghost btn-sm" onClick={() => setIsCategoryModalOpen(true)}>➕ Nova</button>
+            </div>
             {loadingCategories ? (
               <p style={{ color: 'var(--nimbus-text-muted)', fontSize: '0.875rem' }}>Carregando categorias...</p>
             ) : categories.length === 0 ? (
@@ -199,11 +204,18 @@ export const DashboardPage = () => {
         onSubmit={handleCreateTransaction}
         accounts={accounts}
         categories={categories}
+        onRefreshAccounts={refetchAccounts}
+        onRefreshCategories={refetchCategories}
       />
       <AccountModal 
         isOpen={isAccountModalOpen} 
         onClose={() => setIsAccountModalOpen(false)} 
         onSuccess={refetchAccounts} 
+      />
+      <CategoryModal
+        isOpen={isCategoryModalOpen}
+        onClose={() => setIsCategoryModalOpen(false)}
+        onSuccess={refetchCategories}
       />
     </div>
   );
