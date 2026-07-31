@@ -22,8 +22,8 @@ export const Navbar = () => {
   return (
     <header className="navbar">
       <div className="navbar-brand">
-        <div className="navbar-brand-icon">
-          💳
+        <div className="navbar-brand-icon" style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="/logo.svg" alt="Logo Meu Bolso Enterprise" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
         </div>
         <span>Meu Bolso Enterprise</span>
       </div>

@@ -7,6 +7,7 @@ import { useTransactions } from '../hooks/useTransactions';
 import StatCard from '../components/StatCard';
 import TransactionTable from '../components/TransactionTable';
 import TransactionModal from '../components/TransactionModal';
+import AccountModal from '../components/AccountModal';
 import Badge from '../components/Badge';
 
 export const DashboardPage = () => {
@@ -16,6 +17,7 @@ export const DashboardPage = () => {
   const { transactions, loading: loadingTransactions, refetch: refetchTransactions, createTransaction } = useTransactions();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
 
   // Derived financial statistics
   const parseNumber = (val) => {
@@ -35,7 +37,8 @@ export const DashboardPage = () => {
     .reduce((acc, t) => acc + parseNumber(t.valor), 0);
 
   const balancoMensal = totalReceitas - totalDespesas;
-  const saldoTotalCalculado = totalSaldoInicial + totalReceitas - totalDespesas;
+  // O backend já atualiza o saldo da conta a cada transação, então o total do saldo das contas já é o saldo real atualizado
+  const saldoTotalCalculado = totalSaldoInicial;
 
   // Recent 5 transactions
   const recentTransactions = [...transactions]
@@ -131,7 +134,10 @@ export const DashboardPage = () => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           {/* Accounts Summary */}
           <div className="nimbus-card">
-            <h2 style={{ fontSize: '1.1rem', marginBottom: '1rem' }}>Minhas Contas</h2>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+              <h2 style={{ fontSize: '1.1rem', margin: 0 }}>Minhas Contas</h2>
+              <button className="btn btn-ghost btn-sm" onClick={() => setIsAccountModalOpen(true)}>➕ Nova</button>
+            </div>
             {loadingAccounts ? (
               <p style={{ color: 'var(--nimbus-text-muted)', fontSize: '0.875rem' }}>Carregando contas...</p>
             ) : accounts.length === 0 ? (
@@ -193,6 +199,11 @@ export const DashboardPage = () => {
         onSubmit={handleCreateTransaction}
         accounts={accounts}
         categories={categories}
+      />
+      <AccountModal 
+        isOpen={isAccountModalOpen} 
+        onClose={() => setIsAccountModalOpen(false)} 
+        onSuccess={refetchAccounts} 
       />
     </div>
   );

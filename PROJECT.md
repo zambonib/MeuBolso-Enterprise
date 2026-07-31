@@ -13,7 +13,7 @@
 | M2 | Backend REST API Endpoints | Account, Category, Transaction REST CRUD, User scoping, validation, balance calculations | M1 | DONE |
 | M3 | Frontend Nimbus UI React | Convert Nimbus UI HTML/CSS to React components (Dashboard, Lançamentos, Auth/Login), API state | M2 | DONE |
 | M4 | E2E Integration & Testing | Integration test suite, multi-tenant security verification, JWT guard verification | M3 | DONE |
-| M5 | Versioning & Push | Git commits in Portuguese, push to remote `https://github.com/zambonib/MeuBolso-Enterprise.git` main branch | M4 | IN_PROGRESS |
+| M5 | Versioning & Push | Git commits in Portuguese, push to remote `https://github.com/zambonib/MeuBolso-Enterprise.git` main branch | M4 | DONE |
 
 ## Interface Contracts
 ### Auth API (`/api/auth`)
