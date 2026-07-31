@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import Footer from '../components/Footer';
 
 export const LoginPage = () => {
   const navigate = useNavigate();
@@ -47,12 +48,12 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className="auth-wrapper">
+    <div className="auth-wrapper" style={{ flexDirection: 'column', gap: '2rem' }}>
       <div className="auth-card">
         <div className="auth-header">
-          <img src="/logo.svg" alt="Logo Meu Bolso Enterprise" style={{ width: '48px', height: '48px', marginBottom: '0.5rem', objectFit: 'contain' }} />
-          <h1 className="auth-title">Meu Bolso Enterprise</h1>
-          <p className="auth-subtitle">Entrar no Sistema Financeiro Multi-tenant</p>
+          <img src="/logo.svg" alt="Logo Meu Bolso" style={{ width: '48px', height: '48px', marginBottom: '0.5rem', objectFit: 'contain' }} />
+          <h1 className="auth-title">Meu Bolso</h1>
+          <p className="auth-subtitle">Entrar no Sistema Financeiro</p>
         </div>
 
         {authAlert && <div className="alert-danger">{authAlert}</div>}
@@ -107,6 +108,7 @@ export const LoginPage = () => {
           Não tem uma conta? <Link to="/register">Cadastre-se aqui</Link>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

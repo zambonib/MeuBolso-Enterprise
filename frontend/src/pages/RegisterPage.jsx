@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import Footer from '../components/Footer';
 
 export const RegisterPage = () => {
   const navigate = useNavigate();
@@ -70,12 +71,12 @@ export const RegisterPage = () => {
   };
 
   return (
-    <div className="auth-wrapper">
+    <div className="auth-wrapper" style={{ flexDirection: 'column', gap: '2rem' }}>
       <div className="auth-card">
         <div className="auth-header">
-          <img src="/logo.svg" alt="Logo Meu Bolso Enterprise" style={{ width: '48px', height: '48px', marginBottom: '0.5rem', objectFit: 'contain' }} />
-          <h1 className="auth-title">Criar Conta Enterprise</h1>
-          <p className="auth-subtitle">Registre-se no Meu Bolso Enterprise</p>
+          <img src="/logo.svg" alt="Logo Meu Bolso" style={{ width: '48px', height: '48px', marginBottom: '0.5rem', objectFit: 'contain' }} />
+          <h1 className="auth-title">Criar Conta</h1>
+          <p className="auth-subtitle">Registre-se no Meu Bolso</p>
         </div>
 
         {authAlert && <div className="alert-danger">{authAlert}</div>}
@@ -155,6 +156,7 @@ export const RegisterPage = () => {
           Já possui conta? <Link to="/login">Faça Login</Link>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

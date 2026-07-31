@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import AppLayout from './components/AppLayout';
+import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
@@ -14,7 +15,7 @@ const ProtectedRoute = () => {
   if (loading) {
     return (
       <div style={{ display: 'flex', height: '100vh', alignItems: 'center', justifyContent: 'center', backgroundColor: 'var(--nimbus-bg)' }}>
-        <p style={{ color: 'var(--nimbus-text-muted)', fontSize: '1.1rem' }}>Carregando Meu Bolso Enterprise...</p>
+        <p style={{ color: 'var(--nimbus-text-muted)', fontSize: '1.1rem' }}>Carregando Meu Bolso...</p>
       </div>
     );
   }
@@ -26,7 +27,7 @@ const ProtectedRoute = () => {
   return <Outlet />;
 };
 
-// Route Guard: Public-only Routes (Login / Register)
+// Route Guard: Public-only Routes (Home / Login / Register)
 const PublicRoute = () => {
   const { isAuthenticated, loading } = useAuth();
 
@@ -52,6 +53,7 @@ export function App() {
         <Routes>
           {/* Public Guest Routes */}
           <Route element={<PublicRoute />}>
+            <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
           </Route>
@@ -65,7 +67,7 @@ export function App() {
           </Route>
 
           {/* Fallback Redirect */}
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

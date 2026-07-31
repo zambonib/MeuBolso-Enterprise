@@ -73,9 +73,9 @@ export const TransactionTable = ({
           <tr>
             <th>Data</th>
             <th>Descrição</th>
-            <th>Categoria</th>
+            <th className="col-categoria">Categoria</th>
             <th>Conta</th>
-            <th>Tipo</th>
+            <th className="col-tipo">Tipo</th>
             <th style={{ textAlign: 'right' }}>Valor</th>
             {(onEdit || onDelete) && <th style={{ textAlign: 'center' }}>Ações</th>}
           </tr>
@@ -85,11 +85,11 @@ export const TransactionTable = ({
             <tr key={tx.id}>
               <td style={{ whiteSpace: 'nowrap' }}>{formatDate(tx.data)}</td>
               <td style={{ fontWeight: 500 }}>{tx.descricao}</td>
-              <td>
+              <td className="col-categoria">
                 <span className="nimbus-badge badge-neutral">{tx.categoriaNome || tx.categoriaId}</span>
               </td>
               <td>{tx.contaNome || tx.contaId}</td>
-              <td>
+              <td className="col-tipo">
                 {tx.tipo === 'RECEITA' ? (
                   <Badge variant="success">RECEITA</Badge>
                 ) : (
