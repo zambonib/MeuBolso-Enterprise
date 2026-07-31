@@ -50,7 +50,7 @@ export const LoginPage = () => {
     <div className="auth-wrapper">
       <div className="auth-card">
         <div className="auth-header">
-          <div style={{ fontSize: '2.5rem' }}>💳</div>
+          <img src="/logo.svg" alt="Logo Meu Bolso Enterprise" style={{ width: '48px', height: '48px', marginBottom: '0.5rem', objectFit: 'contain' }} />
           <h1 className="auth-title">Meu Bolso Enterprise</h1>
           <p className="auth-subtitle">Entrar no Sistema Financeiro Multi-tenant</p>
         </div>
